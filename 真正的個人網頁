@@ -1,317 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Ko-Ying, Yin's Portfolio</title>
-   <style>
-       body {
-           font-family: 'Inter', sans-serif;
-           margin: 0;
-           padding: 0;
-           background-color: #F5F5EC; /* Light beige background */
-           color: #333333; /* Dark gray text */
-           text-align: center;
-       }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ko-Ying, Yin's Portfolio</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5EC; /* Light beige background */
+            color: #333333; /* Dark gray text */
+            text-align: center;
+        }
 
+        header, footer {
+            background-color: #1E4166; /* Deep ocean blue header */
+            color: #FFFFFF;
+            padding: 20px 0;
+        }
 
-       header, footer {
-           background-color: #1E4166; /* Deep ocean blue header */
-           color: #FFFFFF;
-           padding: 20px 0;
-       }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #FFFFFF;
+        }
 
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px 0;
+            overflow: hidden;
+        }
 
-       header h1 {
-           margin: 0;
-           font-size: 2.5em;
-           color: #FFFFFF;
-       }
+        section {
+            background: #FFFFFF; /* White content block */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: all 0.3s ease-in-out;
+        }
 
+        section:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
 
-       .container {
-           width: 90%;
-           max-width: 800px;
-           margin: auto;
-           padding: 20px 0;
-           overflow: hidden;
-       }
+        section h2 {
+            color: #1E4166; /* Deep ocean blue heading */
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2F6A53; /* Forest green separator */
+        }
 
+        .about-me-content {
+            text-align: center;
+            margin-bottom: 20px;
+            /* Added for better word wrapping on small screens */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* New class for the bold and larger title */
+        .founder-title {
+            font-size: 1.25em; /* Larger font size */
+        }
 
-       section {
-           background: #FFFFFF; /* White content block */
-           padding: 40px;
-           border-radius: 12px;
-           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-           margin-bottom: 30px;
-           transition: all 0.3s ease-in-out;
-       }
+        .about-me-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #4A4A4A; /* Slightly lighter gray for readability */
+            margin: 0 0 10px;
+            letter-spacing: 0.5px; /* Added letter spacing for better readability */
+        }
 
+        /* Added specific colors for emails */
+        .personal-contact {
+            color: #2F6A53; /* Forest green for personal contact */
+            text-decoration: none; /* Remove underline from links */
+            transition: color 0.3s ease;
+        }
 
-       section:hover {
-           box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-           transform: translateY(-5px);
-       }
+        .company-contact {
+            color: #1E4166; /* Deep ocean blue for company contact */
+            text-decoration: none; /* Remove underline from links */
+            transition: color 0.3s ease;
+        }
+        
+        /* Hover effect for email links */
+        .personal-contact:hover {
+            color: #3A755C; /* Darker green on hover */
+        }
 
+        .company-contact:hover {
+            color: #27527D; /* Darker blue on hover */
+        }
 
-       section h2 {
-           color: #1E4166; /* Deep ocean blue heading */
-           font-size: 2em;
-           margin-bottom: 20px;
-           padding-bottom: 10px;
-           border-bottom: 2px solid #2F6A53; /* Forest green separator */
-       }
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 0;
+            background-color: #FFFFFF; /* White background */
+            margin: 20px auto;
+            border: 4px solid #E0E0E0; /* Light gray border */
+            overflow: hidden;
+        }
 
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-       .about-me-content {
-           text-align: center;
-           margin-bottom: 20px;
-       }
+        .credentials-list {
+            text-align: left;
+            margin: 30px 0 0;
+        }
 
+        .credentials-list h3 {
+            color: #1E4166; /* Deep ocean blue subheading */
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #D3D3C9; /* Lighter gray-beige separator */
+        }
 
-       .about-me-content p {
-           font-size: 1.1em;
-           line-height: 1.6;
-           color: #555555; /* Lighter gray for readability */
-           margin: 0 0 10px;
-       }
+        .credentials-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
 
+        .credentials-list li {
+            background: #F8F8F8; /* Light gray item background */
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border: 1px solid #E0E0E0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease-in-out;
+        }
 
-       .profile-photo {
-           width: 150px;
-           height: 150px;
-           border-radius: 0;
-           background-color: #FFFFFF; /* White background */
-           margin: 20px auto;
-           border: 4px solid #E0E0E0; /* Light gray border */
-           overflow: hidden;
-       }
+        .credentials-list li:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
 
+        .credential-title, .credential-iso {
+            font-weight: 700;
+            color: #2F6A53; /* Forest green accent text */
+            display: block;
+        }
 
-       .profile-photo img {
-           width: 100%;
-           height: 100%;
-           object-fit: cover;
-       }
+        .credential-iso {
+            font-size: 1.1em;
+        }
 
+        .credential-subtitle {
+            font-weight: normal;
+            font-size: 0.9em;
+            color: #777777;
+            margin-top: 5px;
+            display: block;
+        }
 
-       .credentials-list {
-           text-align: left;
-           margin: 30px 0 0;
-       }
+        .link-item {
+            margin-bottom: 20px;
+            padding: 15px;
+        }
 
+        .link-item p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #555555;
+        }
 
-       .credentials-list h3 {
-           color: #1E4166; /* Deep ocean blue subheading */
-           font-size: 1.6em;
-           margin-bottom: 15px;
-           padding-bottom: 5px;
-           border-bottom: 1px solid #D3D3C9; /* Lighter gray-beige separator */
-       }
+        .link-item a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1em;
+            background-color: #1E4166; /* Deep ocean blue button */
+            padding: 12px 25px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
 
+        .link-item a:hover {
+            transform: translateY(-3px) scale(1.02);
+            background-color: #3A755C; /* Forest green button hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
-       .credentials-list ul {
-           list-style-type: none;
-           padding: 0;
-           margin: 0;
-       }
+        footer {
+            background-color: #1E4166;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            margin-top: 30px;
+        }
 
-
-       .credentials-list li {
-           background: #F8F8F8; /* Light gray item background */
-           padding: 15px;
-           margin-bottom: 12px;
-           border-radius: 8px;
-           border: 1px solid #E0E0E0;
-           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
-           transition: all 0.3s ease-in-out;
-       }
-
-
-       .credentials-list li:hover {
-           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-           transform: translateY(-2px);
-       }
-
-
-       .credential-title, .credential-iso {
-           font-weight: 700;
-           color: #2F6A53; /* Forest green accent text */
-           display: block;
-       }
-
-
-       .credential-iso {
-           font-size: 1.1em;
-       }
-
-
-       .credential-subtitle {
-           font-weight: normal;
-           font-size: 0.9em;
-           color: #777777;
-           margin-top: 5px;
-           display: block;
-       }
-
-
-       .link-item {
-           margin-bottom: 20px;
-           padding: 15px;
-       }
-
-
-       .link-item p {
-           margin-bottom: 20px;
-           font-size: 1.1em;
-           color: #555555;
-       }
-
-
-       .link-item a {
-           display: inline-block;
-           text-decoration: none;
-           color: #fff;
-           font-weight: 600;
-           font-size: 1.1em;
-           background-color: #1E4166; /* Deep ocean blue button */
-           padding: 12px 25px;
-           border-radius: 50px;
-           transition: all 0.3s ease;
-       }
-
-
-       .link-item a:hover {
-           transform: translateY(-3px) scale(1.02);
-           background-color: #3A755C; /* Forest green button hover */
-           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-       }
-
-
-       footer {
-           background-color: #1E4166;
-           color: #FFFFFF;
-           text-align: center;
-           padding: 20px 0;
-           width: 100%;
-           margin-top: 30px;
-       }
-
-
-       @media (max-width: 768px) {
-           .container {
-               width: 95%;
-           }
-           header h1 {
-               font-size: 2em;
-           }
-           section {
-               padding: 30px 20px;
-           }
-       }
-   </style>
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-   <header>
-       <h1>Ko-Ying, Yin's Portfolio</h1>
-   </header>
+    <header>
+        <h1>Ko-Ying, Yin's Portfolio</h1>
+    </header>
 
+    <div class="container">
+        <section>
+            <h2>About Me</h2>
+            <!-- Photo Placeholder -->
+            <div class="profile-photo">
+                <!-- Insert your photo here, for example: <img src="your-photo-url.jpg" alt="Ko-Ying, Yin's profile photo"> -->
+            </div>
+            <div class="about-me-content">
+                <p><strong class="founder-title">Founder of Ecoshane Sustainable Consulting Co.</strong></p>
+                <p>Contact Me: <a href="mailto:yinkoying.yky@gmail.com" class="personal-contact">yinkoying.yky@gmail.com</a></p>
+                <p>Company Contact: <a href="mailto:ecoshane.esg@gmail.com" class="company-contact">ecoshane.esg@gmail.com</a></p>
+            </div>
+        </section>
+        
+        <section class="credentials-list">
+            <h2>Skills</h2>
+            <ul>
+                <li>
+                    <span class="credential-title">AI-Powered Carbon Analytics</span>
+                    <span class="credential-subtitle">Applying AI to analyze carbon emissions and assist in reduction planning.</span>
+                </li>
+                <li>
+                    <span class="credential-title">NLP for ESG Reporting</span>
+                    <span class="credential-subtitle">Using NLP to automatically extract key ESG data from unstructured text.</span>
+                </li>
+                <li>
+                    <span class="credential-title">Machine Learning for Green Strategy</span>
+                    <span class="credential-subtitle">Building machine learning models to assess and simulate the impact of green transformation strategies.</span>
+                </li>
+                <li>
+                    <span class="credential-title">AI-Driven Supply Chain Risk Assessment</span>
+                    <span class="credential-subtitle">Using AI to identify and evaluate environmental and social risks in the supply chain.</span>
+                </li>
+            </ul>
+        </section>
 
-   <div class="container">
-       <section>
-           <h2>About Me</h2>
-           <!-- Photo Placeholder -->
-           <div class="profile-photo">
-               <!-- Insert your photo here, for example: <img src="your-photo-url.jpg" alt="Ko-Ying, Yin's profile photo"> -->
-           </div>
-           <div class="about-me-content">
-               <p>Founder of Ecoshane Sustainable Consulting Co.</p>
-               <p>yinkoying.yky@gmail.com | ecoshane.esg@gmail.com</p>
-           </div>
-       </section>
-      
-       <section class="credentials-list">
-           <h2>Skills</h2>
-           <ul>
-               <li>
-                   <span class="credential-title">Machine Learning & Data Analysis</span>
-                   <span class="credential-subtitle">Proficient in Python, TensorFlow, PyTorch</span>
-               </li>
-           </ul>
-       </section>
+        <section class="credentials-list">
+            <h2>Expertise</h2>
+            <ul>
+                <li>
+                    <span class="credential-iso">ISO 14064-1</span>
+                    <span class="credential-subtitle">Organizational GHG Inventory Internal Verifier</span>
+                </li>
+                <li>
+                    <span class="credential-iso">ISO 14067</span>
+                    <span class="credential-subtitle">Carbon Footprint Internal Verifier</span>
+                </li>
+                <li>
+                    <span class="credential-title">GRI Standard</span>
+                    <span class="credential-subtitle">Certified Sustainability Professional</span>
+                </li>
+                <li>
+                    <span class="credential-title">ESG Performance</span>
+                    <span class="credential-subtitle">Assessor</span>
+                </li>
+            </ul>
+        </section>
 
+        <section class="credentials-list">
+            <h2>Certifications</h2>
+            <ul>
+                <li>
+                    <span class="credential-title">Sustainable Finance Fundamentals Exam</span>
+                    <span class="credential-subtitle">- SFI</span>
+                </li>
+                <li>
+                    <span class="credential-title">Net-Zero Carbon Planning and Management Professional</span>
+                    <span class="credential-subtitle">- Ministry of Economic Affairs (MOEA)</span>
+                </li>
+                <li>
+                    <span class="credential-title">Net-Zero Green Collar Talent</span>
+                    <span class="credential-subtitle">- Ministry of Environment</span>
+                </li>
+                <li>
+                    <span class="credential-title">Environmental Education Personnel</span>
+                    <span class="credential-subtitle">- Ministry of Environment</span>
+                </li>
+            </ul>
+        </section>
+    </div>
 
-       <section class="credentials-list">
-           <h2>Expertise</h2>
-           <ul>
-               <li>
-                   <span class="credential-iso">ISO 14064-1</span>
-                   <span class="credential-subtitle">Organizational GHG Inventory Internal Verifier</span>
-               </li>
-               <li>
-                   <span class="credential-iso">ISO 14067</span>
-                   <span class="credential-subtitle">Carbon Footprint Internal Verifier</span>
-               </li>
-               <li>
-                   <span class="credential-title">GRI Standard</span>
-                   <span class="credential-subtitle">Certified Sustainability Professional</span>
-               </li>
-               <li>
-                   <span class="credential-title">ESG Performance</span>
-                   <span class="credential-subtitle">Assessor</span>
-               </li>
-           </ul>
-       </section>
-
-
-       <section class="credentials-list">
-           <h2>Certifications</h2>
-           <ul>
-               <li>
-                   <span class="credential-title">Sustainable Finance Fundamentals Exam</span>
-                   <span class="credential-subtitle">- SFI</span>
-               </li>
-               <li>
-                   <span class="credential-title">Net-Zero Carbon Planning and Management Professional</span>
-                   <span class="credential-subtitle">- Ministry of Economic Affairs (MOEA)</span>
-               </li>
-               <li>
-                   <span class="credential-title">Net-Zero Green Collar Talent</span>
-                   <span class="credential-subtitle">- Ministry of Environment</span>
-               </li>
-               <li>
-                   <span class="credential-title">Environmental Education Personnel</span>
-                   <span class="credential-subtitle">- Ministry of Environment</span>
-               </li>
-           </ul>
-       </section>
-
-
-       <section class="links">
-           <h2>Learn More</h2>
-           <div class="link-item">
-               <p>Here you can find my portfolio, professional experience, and skills.</p>
-               <!-- Please replace "your-notion-link" with your actual link -->
-               <a href="https://your-notion-link" target="_blank">Go to my Notion Portfolio</a>
-           </div>
-       </section>
-
-
-       <section class="links">
-           <h2>Ecoshane Sustainable Consulting Co.</h2>
-           <div class="link-item">
-               <p>Learn more about our mission and services.</p>
-               <a href="https://ecoshane.github.io/" target="_blank">Visit our Website</a>
-           </div>
-       </section>
-   </div>
-
-
-   <footer>
-       <p>&copy; 2025 Ko-Ying, Yin. All Rights Reserved.</p>
-   </footer>
+    <footer>
+        <p>&copy; 2025 Ko-Ying, Yin. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
-
-
-
