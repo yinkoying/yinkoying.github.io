@@ -3,163 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ko-Ying, Yin's Refined Portfolio</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Ko-Ying, Yin's Portfolio</title>
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5EC; /* Light beige background */
+            color: #333333; /* Dark gray text */
+        }
+
+        header, footer {
+            background-color: #1E4166; /* Deep ocean blue header */
+            color: #FFFFFF;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #FFFFFF;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px 0;
+            overflow: hidden;
+        }
+
+        section {
+            background: #FFFFFF; /* White content block */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: all 0.3s ease-in-out;
+            text-align: left; /* Aligned to the left as requested */
+        }
+
+        section:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        section h2 {
+            color: #1E4166; /* Deep ocean blue heading */
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2F6A53; /* Forest green separator */
+        }
+
+        .about-me-content {
+            text-align: left; /* Aligned to the left as requested */
+            margin-bottom: 20px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .founder-title {
+            font-size: 1.25em; /* Larger font size */
+        }
+
+        .about-me-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #4A4A4A; /* Slightly lighter gray for readability */
+            margin: 0 0 10px;
+            letter-spacing: 0.5px; /* Added letter spacing for better readability */
+        }
+
+        .personal-contact {
+            color: #2F6A53; /* Forest green for personal contact */
+            text-decoration: none; /* Remove underline from links */
+            transition: color 0.3s ease;
+        }
+
+        .company-contact {
+            color: #1E4166; /* Deep ocean blue for company contact */
+            text-decoration: none; /* Remove underline from links */
+            transition: color 0.3s ease;
+        }
+        
+        .personal-contact:hover {
+            color: #3A755C; /* Darker green on hover */
+        }
+
+        .company-contact:hover {
+            color: #27527D; /* Darker blue on hover */
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 0;
+            background-color: #FFFFFF; /* White background */
+            margin: 20px auto;
+            border: 4px solid #E0E0E0; /* Light gray border */
+            overflow: hidden;
+            /* Flexbox for centering within the container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-photo svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .credentials-list {
+            text-align: left;
+            margin: 30px 0 0;
+        }
+
+        .credentials-list h3 {
+            color: #1E4166; /* Deep ocean blue subheading */
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #D3D3C9; /* Lighter gray-beige separator */
+        }
+
+        .credentials-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .credentials-list li {
+            background: #F8F8F8; /* Light gray item background */
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            border: 1px solid #E0E0E0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .credentials-list li:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .credential-title, .credential-iso {
+            font-weight: 700;
+            color: #2F6A53; /* Forest green accent text */
+            display: block;
+        }
+
+        .credential-iso {
+            font-size: 1.1em;
+        }
+
+        .credential-subtitle {
+            font-weight: normal;
+            font-size: 0.9em;
+            color: #777777;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .link-item {
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        .link-item p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #555555;
+            text-align: center; /* Center align text for the link block */
+        }
+
+        .link-item a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1em;
+            background-color: #1E4166; /* Deep ocean blue button */
+            padding: 12px 25px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .link-item a:hover {
+            transform: translateY(-3px) scale(1.02);
+            background-color: #3A755C; /* Forest green button hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* New styling for the company link section to match the original style */
+        .company-link-section {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            text-align: left; /* Changed from center to left */
+        }
+
+        .company-link-section h2 {
+            color: #1E4166;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        /* New paragraph styles for company links */
+        .company-link-section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #4A4A4A;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Styling for the button */
+        .company-button {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1em;
+            background-color: #2F6A53; /* A color that matches the original theme */
+            padding: 12px 25px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .company-button:hover {
+            background-color: #1E4166; /* A hover color that matches the original theme */
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .center-text {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #1E4166;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            section {
+                padding: 30px 20px;
+            }
+            /* Adjust the `about-me-content` for mobile */
+            .about-me-content, .credentials-list {
+                text-align: left; /* Keep left alignment */
+            }
         }
     </style>
 </head>
-<body class="bg-neutral-100 text-neutral-800 antialiased">
-
-    <!-- Header Section -->
-    <header class="bg-sky-900 text-white py-8 shadow-lg">
-        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-center">Ko-Ying, Yin's Portfolio</h1>
+<body>
+    <header>
+        <h1>Ko-Ying, Yin's Portfolio</h1>
     </header>
 
-    <main class="container mx-auto px-4 py-12 max-w-4xl">
-        <!-- About Me Section -->
-        <section class="bg-white rounded-xl shadow-2xl p-8 mb-8 transition-transform duration-300 hover:scale-[1.01] hover:shadow-3xl">
-            <div class="flex flex-col items-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-sky-900 border-b-2 border-emerald-700 pb-2">About Me</h2>
-                <!-- Profile Photo Placeholder -->
-                <div class="w-40 h-40 rounded-full overflow-hidden mb-6 border-4 border-neutral-200 shadow-md">
-                    <img src="https://placehold.co/160x160/E0E0E0/333333?text=Profile+Photo" alt="Ko-Ying, Yin's profile photo" class="w-full h-full object-cover">
-                </div>
-                <div class="text-center space-y-4">
-                    <p class="text-lg font-semibold text-sky-900">Founder of Ecoshane Sustainable Consulting Co.</p>
-                    <p class="text-neutral-600 leading-relaxed max-w-prose mx-auto">
-                        Ko-Ying, Yin is a sustainable consulting expert specializing in leveraging AI and machine learning to drive effective green strategies for businesses. With a strong background in environmental science and advanced data analysis, Ko-Ying helps organizations navigate ESG reporting, carbon analytics, and green supply chain management.
-                    </p>
-                    <p class="flex items-center justify-center space-x-2">
-                        <span class="font-medium text-lg">Contact:</span>
-                        <a href="mailto:yinkoying.yky@gmail.com" id="personal-email" class="text-emerald-700 font-semibold hover:text-emerald-900 transition-colors duration-200 cursor-pointer">
-                            yinkoying.yky@gmail.com
-                        </a>
-                        <button onclick="copyToClipboard('yinkoying.yky@gmail.com', 'personal-email-msg')" class="bg-neutral-200 rounded-full p-2 hover:bg-neutral-300 transition-colors duration-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                            </svg>
-                        </button>
-                        <span id="personal-email-msg" class="text-sm font-semibold text-emerald-700 opacity-0 transition-opacity duration-300"></span>
-                    </p>
-                    <p class="flex items-center justify-center space-x-2">
-                        <span class="font-medium text-lg">Company:</span>
-                        <a href="mailto:ecoshane.esg@gmail.com" id="company-email" class="text-sky-900 font-semibold hover:text-sky-950 transition-colors duration-200 cursor-pointer">
-                            ecoshane.esg@gmail.com
-                        </a>
-                        <button onclick="copyToClipboard('ecoshane.esg@gmail.com', 'company-email-msg')" class="bg-neutral-200 rounded-full p-2 hover:bg-neutral-300 transition-colors duration-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-neutral-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                            </svg>
-                        </button>
-                        <span id="company-email-msg" class="text-sm font-semibold text-emerald-700 opacity-0 transition-opacity duration-300"></span>
-                    </p>
-                </div>
+    <div class="container">
+        <section>
+            <h2>About Me</h2>
+            <!-- Photo Placeholder -->
+            <div class="profile-photo">
+                <svg class="w-full h-full text-slate-400 p-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="about-me-content">
+                <p>I am a sustainable consulting expert specializing in leveraging AI and machine learning to create effective green strategies for businesses. With a strong background in environmental science and advanced data analysis, I assist organizations in navigating the complexities of ESG reporting, carbon analytics, and green supply chain management.</p>
+                <p>Contact Me: <a href="mailto:yinkoying.yky@gmail.com" class="personal-contact">yinkoying.yky@gmail.com</a></p>
             </div>
         </section>
         
-        <!-- Skills Section -->
-        <section class="bg-white rounded-xl shadow-2xl p-8 mb-8 transition-transform duration-300 hover:scale-[1.01] hover:shadow-3xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-sky-900 border-b-2 border-emerald-700 pb-2">Skills</h2>
-            <ul class="space-y-4 text-left">
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">AI-Powered Carbon Analytics</span>
-                    <span class="block text-neutral-600 mt-1">Applying AI to analyze carbon emissions and assist in reduction planning.</span>
+        <section class="credentials-list">
+            <h2>Skills</h2>
+            <ul>
+                <li>
+                    <span class="credential-title">AI-Powered Carbon Analytics</span>
+                    <span class="credential-subtitle">Applying AI to analyze carbon emissions and assist in reduction planning.</span>
                 </li>
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">NLP for ESG Reporting</span>
-                    <span class="block text-neutral-600 mt-1">Using NLP to automatically extract key ESG data from unstructured text.</span>
+                <li>
+                    <span class="credential-title">NLP for ESG Reporting</span>
+                    <span class="credential-subtitle">Using NLP to automatically extract key ESG data from unstructured text.</span>
                 </li>
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">Machine Learning for Green Strategy</span>
-                    <span class="block text-neutral-600 mt-1">Building machine learning models to assess and simulate the impact of green transformation strategies.</span>
+                <li>
+                    <span class="credential-title">Machine Learning for Green Strategy</span>
+                    <span class="credential-subtitle">Building machine learning models to assess and simulate the impact of green transformation strategies.</span>
                 </li>
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">AI-Driven Supply Chain Risk Assessment</span>
-                    <span class="block text-neutral-600 mt-1">Using AI to identify and evaluate environmental and social risks in the supply chain.</span>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Expertise Section -->
-        <section class="bg-white rounded-xl shadow-2xl p-8 mb-8 transition-transform duration-300 hover:scale-[1.01] hover:shadow-3xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-sky-900 border-b-2 border-emerald-700 pb-2">Expertise</h2>
-            <ul class="space-y-4 text-left">
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">ISO 14064-1</span>
-                    <span class="block text-neutral-600 mt-1">Organizational GHG Inventory Internal Verifier</span>
-                </li>
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">ISO 14067</span>
-                    <span class="block text-neutral-600 mt-1">Carbon Footprint Internal Verifier</span>
-                </li>
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">GRI Standard</span>
-                    <span class="block text-neutral-600 mt-1">Certified Sustainability Professional</span>
-                </li>
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">ESG Performance</span>
-                    <span class="block text-neutral-600 mt-1">Assessor</span>
+                <li>
+                    <span class="credential-title">AI-Driven Supply Chain Risk Assessment</span>
+                    <span class="credential-subtitle">Using AI to identify and evaluate environmental and social risks in the supply chain.</span>
                 </li>
             </ul>
         </section>
 
-        <!-- Certifications Section -->
-        <section class="bg-white rounded-xl shadow-2xl p-8 transition-transform duration-300 hover:scale-[1.01] hover:shadow-3xl">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-sky-900 border-b-2 border-emerald-700 pb-2">Certifications</h2>
-            <ul class="space-y-4 text-left">
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">Sustainable Finance Fundamentals Exam</span>
-                    <span class="block text-neutral-600 mt-1">- SFI</span>
+        <section class="credentials-list">
+            <h2>Expertise</h2>
+            <ul>
+                <li>
+                    <span class="credential-iso">ISO 14064-1</span>
+                    <span class="credential-subtitle">Organizational GHG Inventory Internal Verifier</span>
                 </li>
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">Net-Zero Carbon Planning and Management Professional</span>
-                    <span class="block text-neutral-600 mt-1">- Ministry of Economic Affairs (MOEA)</span>
+                <li>
+                    <span class="credential-iso">ISO 14067</span>
+                    <span class="credential-subtitle">Carbon Footprint Internal Verifier</span>
                 </li>
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">Net-Zero Green Collar Talent</span>
-                    <span class="block text-neutral-600 mt-1">- Ministry of Environment</span>
+                <li>
+                    <span class="credential-title">GRI Standard</span>
+                    <span class="credential-subtitle">Certified Sustainability Professional</span>
                 </li>
-                <li class="bg-neutral-50 p-4 rounded-lg shadow-inner border border-neutral-200 transition-shadow duration-200 hover:shadow-lg">
-                    <span class="block text-xl font-bold text-emerald-700">Environmental Education Personnel</span>
-                    <span class="block text-neutral-600 mt-1">- Ministry of Environment</span>
+                <li>
+                    <span class="credential-title">ESG Performance</span>
+                    <span class="credential-subtitle">Assessor</span>
                 </li>
             </ul>
         </section>
-    </main>
 
-    <!-- Footer Section -->
-    <footer class="bg-sky-900 text-white py-6 mt-8 shadow-inner">
-        <p class="text-center">&copy; 2025 Ko-Ying, Yin. All Rights Reserved.</p>
+        <section class="credentials-list">
+            <h2>Certifications</h2>
+            <ul>
+                <li>
+                    <span class="credential-title">Sustainable Finance Fundamentals Exam</span>
+                    <span class="credential-subtitle">- SFI</span>
+                </li>
+                <li>
+                    <span class="credential-title">Net-Zero Carbon Planning and Management Professional</span>
+                    <span class="credential-subtitle">- Ministry of Economic Affairs (MOEA)</span>
+                </li>
+                <li>
+                    <span class="credential-title">Net-Zero Green Collar Talent</span>
+                    <span class="credential-subtitle">- Ministry of Environment</span>
+                </li>
+                <li>
+                    <span class="credential-title">Environmental Education Personnel</span>
+                    <span class="credential-subtitle">- Ministry of Environment</span>
+                </li>
+            </ul>
+        </section>
+        
+        <!-- Company Link Section - Re-added with original styling -->
+        <section class="company-link-section">
+            <h2>Ecoshane Sustainable Consulting</h2>
+            <p>Contact Our Company: <a href="mailto:ecoshane.esg@gmail.com" class="company-contact">ecoshane.esg@gmail.com</a></p>
+            <div class="center-text">
+                <a href="https://ecoshane.github.io/" target="_blank" class="company-button">Visit Ecoshane</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ko-Ying, Yin. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        // Function to copy text to clipboard and show a temporary message
-        function copyToClipboard(textToCopy, messageId) {
-            const tempInput = document.createElement('textarea');
-            tempInput.value = textToCopy;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            const message = document.getElementById(messageId);
-            message.textContent = 'Copied!';
-            message.classList.remove('opacity-0');
-            message.classList.add('opacity-100');
-
-            setTimeout(() => {
-                message.classList.remove('opacity-100');
-                message.classList.add('opacity-0');
-            }, 1500);
-        }
-    </script>
 </body>
 </html>
