@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Plan Roadmap (2025-2030)</title>
+    <!-- 載入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 載入 Lucide 圖示庫 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* 自訂樣式 */
+        body {
+            background-color: #f8fafc; /* Tailwind 'slate-50' */
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        }
+        /* 軌道標題的箭頭轉換 */
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+        .toggle-icon.rotated {
+            transform: rotate(-90deg);
+        }
+        /* 讓同排的卡片等高 */
+        .milestone-grid {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 1.5rem; /* 6 */
+        }
+        /* 調整：將橫向排列的斷點從 lg 改為 md (768px) */
+        @media (min-width: 768px) { /* md */
+            .milestone-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        .milestone-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* 確保卡片等高 */
+        }
+        .milestone-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        /* 時間標籤 */
+        .time-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px; /* 藥丸形狀 */
+            font-size: 0.75rem; /* 12px */
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+
+<body class="p-6 md:p-12">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- 標題 -->
+        <div class="text-center bg-white rounded-xl shadow-md p-8 md:p-12 mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Future Plan <span class="text-emerald-600">(2025–2030)</span>
+            </h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                A strategic roadmap for a Green Finance Professional.
+            </p>
+        </div>
+
+        <!-- 發展軌道 -->
+        <div class="space-y-12">
+
+            <!-- 1. 職涯 (Career) -->
+            <section class="track-container">
+                <!-- 軌道標題 (可點擊) -->
+                <div class="track-header flex justify-between items-center p-6 bg-white rounded-lg shadow-sm cursor-pointer" data-track="career">
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="briefcase" class="w-8 h-8 text-emerald-600"></i>
+                        <h2 class="text-2xl font-bold text-emerald-800">Career</h2>
+                    </div>
+                    <i data-lucide="chevron-down" class="w-6 h-6 text-emerald-600 toggle-icon"></i>
+                </div>
+                <!-- 內容 (可收合) -->
+                <div class="milestone-grid mt-6 track-content" id="career-content">
+                    <!-- Card 1 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-emerald-100 text-emerald-800">Now – 1 year</span>
+                            <p class="text-gray-700">Join bank ESG job, help with report and data.</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-emerald-100 text-emerald-800">1 – 3 years</span>
+                            <p class="text-gray-700">Lead small ESG projects, work with team.</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-emerald-100 text-emerald-800">3 – 5 years</span>
+                            <p class="text-gray-700">Plan medium ESG program, build report system.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 技能 (Skills) -->
+            <section class="track-container">
+                <!-- 軌道標題 (可點擊) -->
+                <div class="track-header flex justify-between items-center p-6 bg-white rounded-lg shadow-sm cursor-pointer" data-track="skills">
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="lightbulb" class="w-8 h-8 text-indigo-600"></i>
+                        <h2 class="text-2xl font-bold text-indigo-800">Skills</h2>
+                    </div>
+                    <i data-lucide="chevron-down" class="w-6 h-6 text-indigo-600 toggle-icon rotated"></i>
+                </div>
+                <!-- 內容 (可收合, 預設收合) -->
+                <div class="milestone-grid mt-6 track-content hidden" id="skills-content">
+                    <!-- Card 1 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-indigo-100 text-indigo-800">Now – 1 year</span>
+                            <p class="text-gray-700">Learn Excel, cloud, ESG writing.</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-indigo-100 text-indigo-800">1 – 3 years</span>
+                            <p class="text-gray-700">Use AI for ESG data and carbon check.</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-indigo-100 text-indigo-800">3 – 5 years</span>
+                            <p class="text-gray-700">Build data model, help decision.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 進修 (Study) -->
+            <section class="track-container">
+                <!-- 軌道標題 (可點擊) -->
+                <div class="track-header flex justify-between items-center p-6 bg-white rounded-lg shadow-sm cursor-pointer" data-track="study">
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="graduation-cap" class="w-8 h-8 text-sky-600"></i>
+                        <h2 class="text-2xl font-bold text-sky-800">Study</h2>
+                    </div>
+                    <i data-lucide="chevron-down" class="w-6 h-6 text-sky-600 toggle-icon rotated"></i>
+                </div>
+                <!-- 內容 (可收合, 預設收合) -->
+                <div class="milestone-grid mt-6 track-content hidden" id="study-content">
+                    <!-- Card 1 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-sky-100 text-sky-800">Now – 1 year</span>
+                            <p class="text-gray-700">Take ESG and AI courses.</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-sky-100 text-sky-800">1 – 3 years</span>
+                            <p class="text-gray-700">Apply NTPU master for work study.</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-sky-100 text-sky-800">3 – 5 years</span>
+                            <p class="text-gray-700">Finish study, write report.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 影響力 (Impact) -->
+            <section class="track-container">
+                <!-- 軌道標題 (可點擊) -->
+                <div class="track-header flex justify-between items-center p-6 bg-white rounded-lg shadow-sm cursor-pointer" data-track="impact">
+                    <div class="flex items-center space-x-4">
+                        <i data-lucide="users" class="w-8 h-8 text-orange-600"></i>
+                        <h2 class="text-2xl font-bold text-orange-800">Impact</h2>
+                    </div>
+                    <i data-lucide="chevron-down" class="w-6 h-6 text-orange-600 toggle-icon rotated"></i>
+                </div>
+                <!-- 內容 (可收合, 預設收合) -->
+                <div class="milestone-grid mt-6 track-content hidden" id="impact-content">
+                    <!-- Card 1 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-orange-100 text-orange-800">Now – 1 year</span>
+                            <p class="text-gray-700">Use teacher license, share ESG ideas.</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-orange-100 text-orange-800">1 – 3 years</span>
+                            <p class="text-gray-700">Give small ESG training in team.</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                        <div>
+                            <span class="time-tag bg-orange-100 text-orange-800">3 – 5 years</span>
+                            <p class="text-gray-700">Help people talk same ESG words.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div> <!-- space-y-12 -->
+    </div> <!-- max-w-7xl -->
+
+    <script>
+        // 確保 DOM 載入後才執行
+        document.addEventListener('DOMContentLoaded', () => {
+            // 啟用 Lucide 圖示
+            lucide.createIcons();
+
+            // 軌道收合功能
+            const headers = document.querySelectorAll('.track-header');
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const trackName = header.dataset.track;
+                    const content = document.getElementById(`${trackName}-content`);
+                    const icon = header.querySelector('.toggle-icon');
+
+                    if (content.classList.contains('hidden')) {
+                        // 展開
+                        content.classList.remove('hidden');
+                        icon.classList.remove('rotated');
+                    } else {
+                        // 收合
+                        content.classList.add('hidden');
+                        icon.classList.add('rotated');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
