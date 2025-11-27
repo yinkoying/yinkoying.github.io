@@ -4,241 +4,263 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <title>Future Plan 2025–2030</title>
+    <title>Career Roadmap 2025–2030</title>
     <!-- 載入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 載入 Lucide 圖示庫 -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* 自訂樣式 */
+        /* 自訂字型與背景 */
         body {
             background-color: #f8fafc; /* Tailwind 'slate-50' */
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+            font-family: 'Inter', system-ui, -apple-system, "Microsoft JhengHei", sans-serif;
         }
-        /* 軌道標題的箭頭轉換 */
+        
+        /* 互動效果 */
         .toggle-icon {
             transition: transform 0.3s ease;
         }
         .toggle-icon.rotated {
             transform: rotate(-90deg);
         }
-        /* 讓同排的卡片等高 */
+
+        /* 網格系統：設定不同螢幕尺寸的欄位數 */
         .milestone-grid {
             display: grid;
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-            gap: 1.5rem; /* 6 */
+            grid-template-columns: repeat(1, minmax(0, 1fr)); /* 手機預設 1 欄 */
+            gap: 1rem;
         }
-        /* 調整：將橫向排列的斷點從 lg 改為 md (768px) */
-        @media (min-width: 768px) { /* md */
+
+        /* 平板 (md): 2 欄 */
+        @media (min-width: 768px) {
             .milestone-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
+
+        /* 電腦 (lg): 4 欄 (對應四個時間階段) */
+        @media (min-width: 1024px) {
+            .milestone-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        /* 卡片樣式 */
         .milestone-card {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            height: 100%; /* 確保卡片等高 */
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
         }
         .milestone-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         /* 時間標籤 */
         .time-tag {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 0.25rem 0.75rem;
-            border-radius: 9999px; /* 藥丸形狀 */
-            font-size: 0.75rem; /* 12px */
-            font-weight: 600;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
             margin-bottom: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+        
+        /* 標題與內文 */
+        .card-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            line-height: 1.4;
+        }
+        .card-desc {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: #4b5563; /* gray-600 */
         }
     </style>
 </head>
 
-<body class="p-6 md:p-12">
+<body class="p-4 md:p-10">
 
-    <div class="max-w-7xl mx-auto">
-        <!-- 標題 -->
-        <div class="text-center bg-white rounded-xl shadow-md p-8 md:p-12 mb-12">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Future Plan <span class="text-emerald-600">2025–2030</span>
+    <div class="max-w-[1400px] mx-auto">
+        <!-- 主標題區塊 -->
+        <div class="text-center bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-10 mb-10">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4 tracking-tight">
+                Career Roadmap <span class="text-emerald-600">2025–2030</span>
             </h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Professional Growth Roadmap: Practical & Steady Steps.
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto font-medium">
+                從實習奠基到專案領導：跨域整合、數據驅動與永續價值創造
             </p>
         </div>
 
-        <!-- 發展軌道 -->
-        <div class="space-y-12">
+        <!-- 軌道區塊容器 -->
+        <div class="space-y-8">
 
-            <!-- 1. 職涯 (Career) -->
+            <!-- TRACK 1: 核心職能與專案 (Core & Projects) -->
             <section class="track-container">
-                <!-- 軌道標題 (可點擊) -->
-                <div class="track-header flex justify-between items-center p-6 bg-white rounded-lg shadow-sm cursor-pointer" data-track="career">
+                <div class="track-header flex justify-between items-center p-5 bg-white rounded-xl shadow-sm border border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors" data-track="career">
                     <div class="flex items-center space-x-4">
-                        <i data-lucide="briefcase" class="w-8 h-8 text-emerald-600"></i>
-                        <h2 class="text-2xl font-bold text-emerald-800">Career</h2>
+                        <div class="p-2 bg-emerald-100 rounded-lg">
+                            <i data-lucide="briefcase" class="w-6 h-6 text-emerald-700"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-800">核心職能與專案</h2>
+                            <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Project Execution & Leadership</p>
+                        </div>
                     </div>
-                    <i data-lucide="chevron-down" class="w-6 h-6 text-emerald-600 toggle-icon"></i>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 toggle-icon"></i>
                 </div>
-                <!-- 內容 (可收合) -->
-                <div class="milestone-grid mt-6 track-content" id="career-content">
-                    <!-- Card 1 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                
+                <div class="milestone-grid mt-4 track-content" id="career-content">
+                    <!-- 1. Internship (Reverted) -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-emerald-500">
                         <div>
-                            <span class="time-tag bg-emerald-100 text-emerald-800">Now – 1 year</span>
-                            <p class="text-gray-700 font-medium">Solid Foundation</p>
-                            <p class="text-gray-600 text-sm mt-2">Join the team. Learn SOPs and support senior consultants effectively.</p>
+                            <span class="time-tag bg-slate-100 text-slate-600">實習期間</span>
+                            <h3 class="card-title text-slate-800">專案執行支援</h3>
+                            <p class="card-desc">全力支援 ESG 專案，協助資料清洗、數據比對與文獻檢索，確保精確度並降低資深同仁行政負擔。</p>
                         </div>
                     </div>
-                    <!-- Card 2 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                    <!-- 2. 1 Year -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-emerald-500">
                         <div>
-                            <span class="time-tag bg-emerald-100 text-emerald-800">1 – 3 years</span>
-                            <p class="text-gray-700 font-medium">Project Execution</p>
-                            <p class="text-gray-600 text-sm mt-2">Handle projects independently. Manage client communication well.</p>
+                            <span class="time-tag bg-emerald-50 text-emerald-700">1 年內</span>
+                            <h3 class="card-title text-slate-800">永續作業數位化</h3>
+                            <p class="card-desc">運用數位工具處理 ESG 數據（如碳盤查、問卷），將繁瑣人工作業轉化為高效標準化流程。</p>
                         </div>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                    <!-- 3. 1-3 Years -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-emerald-500">
                         <div>
-                            <span class="time-tag bg-emerald-100 text-emerald-800">3 – 5 years</span>
-                            <p class="text-gray-700 font-medium">Senior Specialist</p>
-                            <p class="text-gray-600 text-sm mt-2">Solve complex cases. Mentor juniors and ensure quality.</p>
+                            <span class="time-tag bg-emerald-100 text-emerald-800">1 - 3 年</span>
+                            <h3 class="card-title text-slate-800">擴大專案視野</h3>
+                            <p class="card-desc">參與多元產業轉型專案，利用科技協助企業建立自動化 ESG 績效追蹤，從單點報告進階至全面管理。</p>
+                        </div>
+                    </div>
+                    <!-- 4. 3-5 Years -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-emerald-500">
+                        <div>
+                            <span class="time-tag bg-emerald-600 text-white">3 - 5 年</span>
+                            <h3 class="card-title text-slate-800">專案領導與落地</h3>
+                            <p class="card-desc">統籌永續專案，從需求訪談、流程規劃到導入，確保解決客戶痛點並兼顧時程與品質。</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 2. 技能 (Skills) -->
+            <!-- TRACK 2: 技術與數據應用 (Tech & Data) -->
             <section class="track-container">
-                <!-- 軌道標題 (可點擊) -->
-                <div class="track-header flex justify-between items-center p-6 bg-white rounded-lg shadow-sm cursor-pointer" data-track="skills">
+                <div class="track-header flex justify-between items-center p-5 bg-white rounded-xl shadow-sm border border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors" data-track="skills">
                     <div class="flex items-center space-x-4">
-                        <i data-lucide="lightbulb" class="w-8 h-8 text-indigo-600"></i>
-                        <h2 class="text-2xl font-bold text-indigo-800">Skills</h2>
+                        <div class="p-2 bg-indigo-100 rounded-lg">
+                            <i data-lucide="cpu" class="w-6 h-6 text-indigo-700"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-800">技術與數據應用</h2>
+                            <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">AI, RPA & Data Analytics</p>
+                        </div>
                     </div>
-                    <i data-lucide="chevron-down" class="w-6 h-6 text-indigo-600 toggle-icon rotated"></i>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 toggle-icon"></i>
                 </div>
-                <!-- 內容 (可收合, 預設收合) -->
-                <div class="milestone-grid mt-6 track-content hidden" id="skills-content">
-                    <!-- Card 1 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+
+                <div class="milestone-grid mt-4 track-content" id="skills-content">
+                    <!-- 1. Internship (Reverted) -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-indigo-500">
                         <div>
-                            <span class="time-tag bg-indigo-100 text-indigo-800">Now – 1 year</span>
-                            <p class="text-gray-700 font-medium">Master Basics</p>
-                            <p class="text-gray-600 text-sm mt-2">Become proficient in ISO 14064/14067 calculation & reporting.</p>
+                            <span class="time-tag bg-slate-100 text-slate-600">實習期間</span>
+                            <h3 class="card-title text-slate-800">技術邏輯掌握</h3>
+                            <p class="card-desc">學習 AI 影像辨識與 RPA 運作，理解技術如何應用於文件審核與建檔，建立「科技輔助永續」思維。</p>
                         </div>
                     </div>
-                    <!-- Card 2 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                    <!-- 2. 1 Year -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-indigo-500">
                         <div>
-                            <span class="time-tag bg-indigo-100 text-indigo-800">1 – 3 years</span>
-                            <p class="text-gray-700 font-medium">Efficiency Tools</p>
-                            <p class="text-gray-600 text-sm mt-2">Use Excel/AI tools to speed up data processing & accuracy.</p>
+                            <span class="time-tag bg-indigo-50 text-indigo-700">1 年內</span>
+                            <h3 class="card-title text-slate-800">跨領域溝通橋樑</h3>
+                            <p class="card-desc">將抽象 ESG 概念轉譯為數據規格，扮演永續團隊與 IT/工程師間的高效溝通者，降低協作門檻。</p>
                         </div>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                    <!-- 3. 1-3 Years -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-indigo-500">
                         <div>
-                            <span class="time-tag bg-indigo-100 text-indigo-800">3 – 5 years</span>
-                            <p class="text-gray-700 font-medium">Advanced Analysis</p>
-                            <p class="text-gray-600 text-sm mt-2">Provide deep insights and practical reduction plans for clients.</p>
+                            <span class="time-tag bg-indigo-100 text-indigo-800">1 - 3 年</span>
+                            <h3 class="card-title text-slate-800">深化數據決策力</h3>
+                            <p class="card-desc">強化金融與 ESG 非財務數據整合能力，協助機構在決策流程中精準納入 ESG 因子。</p>
+                        </div>
+                    </div>
+                    <!-- 4. 3-5 Years -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-indigo-500">
+                        <div>
+                            <span class="time-tag bg-indigo-600 text-white">3 - 5 年</span>
+                            <h3 class="card-title text-slate-800">數據驅動顧問服務</h3>
+                            <p class="card-desc">解讀複雜系統報告，提供具數據佐證的策略建議，協助企業進行風險控管與佈局。</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 3. 進修 (Study) -->
+            <!-- TRACK 3: 專業成長與價值 (Growth & Impact) -->
             <section class="track-container">
-                <!-- 軌道標題 (可點擊) -->
-                <div class="track-header flex justify-between items-center p-6 bg-white rounded-lg shadow-sm cursor-pointer" data-track="study">
+                <div class="track-header flex justify-between items-center p-5 bg-white rounded-xl shadow-sm border border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors" data-track="growth">
                     <div class="flex items-center space-x-4">
-                        <i data-lucide="graduation-cap" class="w-8 h-8 text-sky-600"></i>
-                        <h2 class="text-2xl font-bold text-sky-800">Study</h2>
+                        <div class="p-2 bg-orange-100 rounded-lg">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 text-orange-700"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-800">專業成長與價值</h2>
+                            <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Education & Value Creation</p>
+                        </div>
                     </div>
-                    <i data-lucide="chevron-down" class="w-6 h-6 text-sky-600 toggle-icon rotated"></i>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 toggle-icon"></i>
                 </div>
-                <!-- 內容 (可收合, 預設收合) -->
-                <div class="milestone-grid mt-6 track-content hidden" id="study-content">
-                    <!-- Card 1 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+
+                <div class="milestone-grid mt-4 track-content" id="growth-content">
+                    <!-- 1. Internship (Reverted) -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-orange-400">
                         <div>
-                            <span class="time-tag bg-sky-100 text-sky-800">Now – 1 year</span>
-                            <p class="text-gray-700 font-medium">Required Certs</p>
-                            <p class="text-gray-600 text-sm mt-2">Get all necessary licenses for the job (e.g. specific ISO).</p>
+                            <span class="time-tag bg-slate-100 text-slate-600">實習期間</span>
+                            <h3 class="card-title text-slate-800">永續痛點反饋</h3>
+                            <p class="card-desc">結合實務經驗，主動盤點單據輸入等耗時流程，提出利用 RPA 技術優化的具體場景建議。</p>
                         </div>
                     </div>
-                    <!-- Card 2 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                    <!-- 2. 1 Year -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-orange-400">
                         <div>
-                            <span class="time-tag bg-sky-100 text-sky-800">1 – 3 years</span>
-                            <p class="text-gray-700 font-medium">Degree Completion</p>
-                            <p class="text-gray-600 text-sm mt-2">Finish Master's degree (part-time) to strengthen background.</p>
+                            <span class="time-tag bg-orange-50 text-orange-700">1 年內</span>
+                            <h3 class="card-title text-slate-800">法規與科技對接</h3>
+                            <p class="card-desc">精進 ISSB、GRI 等準則，練習從「系統開發」角度思考法規需求，產出合規且實用的揭露成果。</p>
                         </div>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
+                    <!-- 3. 1-3 Years -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-orange-400">
                         <div>
-                            <span class="time-tag bg-sky-100 text-sky-800">3 – 5 years</span>
-                            <p class="text-gray-700 font-medium">Keep Updating</p>
-                            <p class="text-gray-600 text-sm mt-2">Stay updated with latest global & local regulations.</p>
+                            <span class="time-tag bg-orange-100 text-orange-800">1 - 3 年</span>
+                            <h3 class="card-title text-slate-800">學術與實務雙軌</h3>
+                            <p class="card-desc">進修碩士或學程 (北大/中央)，結合氣候風險模型與業界數據技術，大幅提升專業深度。</p>
+                        </div>
+                    </div>
+                    <!-- 4. 3-5 Years -->
+                    <div class="milestone-card bg-white p-6 rounded-xl shadow-sm border-l-4 border-orange-400">
+                        <div>
+                            <span class="time-tag bg-orange-500 text-white">3 - 5 年</span>
+                            <h3 class="card-title text-slate-800">知識傳承與優化</h3>
+                            <p class="card-desc">將跨域協作經驗轉化為標準化流程 (SOP)，提升組織效率並帶領新人掌握核心邏輯。</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 4. 影響力 (Impact) -->
-            <section class="track-container">
-                <!-- 軌道標題 (可點擊) -->
-                <div class="track-header flex justify-between items-center p-6 bg-white rounded-lg shadow-sm cursor-pointer" data-track="impact">
-                    <div class="flex items-center space-x-4">
-                        <i data-lucide="users" class="w-8 h-8 text-orange-600"></i>
-                        <h2 class="text-2xl font-bold text-orange-800">Contribution</h2>
-                    </div>
-                    <i data-lucide="chevron-down" class="w-6 h-6 text-orange-600 toggle-icon rotated"></i>
-                </div>
-                <!-- 內容 (可收合, 預設收合) -->
-                <div class="milestone-grid mt-6 track-content hidden" id="impact-content">
-                    <!-- Card 1 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
-                        <div>
-                            <span class="time-tag bg-orange-100 text-orange-800">Now – 1 year</span>
-                            <p class="text-gray-700 font-medium">Reliable Support</p>
-                            <p class="text-gray-600 text-sm mt-2">Be a helpful assistant to the team. Reduce workload for seniors.</p>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
-                        <div>
-                            <span class="time-tag bg-orange-100 text-orange-800">1 – 3 years</span>
-                            <p class="text-gray-700 font-medium">Client Success</p>
-                            <p class="text-gray-600 text-sm mt-2">Ensure smooth project delivery and happy clients.</p>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="milestone-card bg-white p-6 rounded-lg shadow-md">
-                        <div>
-                            <span class="time-tag bg-orange-100 text-orange-800">3 – 5 years</span>
-                            <p class="text-gray-700 font-medium">Trusted Partner</p>
-                            <p class="text-gray-600 text-sm mt-2">Be the go-to person for clients. Build long-term trust.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div> <!-- space-y-12 -->
-    </div> <!-- max-w-7xl -->
+        </div> 
+    </div>
 
     <script>
-        // 確保 DOM 載入後才執行
         document.addEventListener('DOMContentLoaded', () => {
-            // 啟用 Lucide 圖示
             lucide.createIcons();
 
-            // 軌道收合功能
             const headers = document.querySelectorAll('.track-header');
             headers.forEach(header => {
                 header.addEventListener('click', () => {
@@ -247,18 +269,21 @@
                     const icon = header.querySelector('.toggle-icon');
 
                     if (content.classList.contains('hidden')) {
-                        // 展開
                         content.classList.remove('hidden');
                         icon.classList.remove('rotated');
                     } else {
-                        // 收合
-                        content.classList.add('hidden');
-                        icon.classList.add('rotated');
+                        // 這裡為了保持展開狀態的流暢體驗，我們做成 Toggle
+                        if (content.style.display === 'none') {
+                            content.style.display = 'grid';
+                            icon.classList.remove('rotated');
+                        } else {
+                            content.style.display = 'none';
+                            icon.classList.add('rotated');
+                        }
                     }
                 });
             });
         });
     </script>
-
 </body>
 </html>
